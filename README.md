@@ -9,5 +9,3 @@
 ## What Didn't
 
 ## Extra Credit
-
-## Screenshots
