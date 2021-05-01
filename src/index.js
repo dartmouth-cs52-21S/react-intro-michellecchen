@@ -1,47 +1,23 @@
-import React, { Component } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
-import debounce from 'lodash.debounce';
-import SearchBar from './components/search_bar';
+import { Provider } from 'react-redux';
+import { createStore, applyMiddleware, compose } from 'redux';
 import './style.scss';
-import youtubeSearch from './youtube-api';
-import VideoList from './components/video_list';
-import VideoDetail from './components/video_detail';
 
-class App extends Component {
-    constructor(props) {
-        super(props);
+import reducers from './reducers';
 
-        this.state = {
-            videos: [],
-            selectedVideo: null,
-        };
+import App from './components/app';
 
-        this.search = debounce(this.search, 300);
-        this.search('pixar');
-    }
+// this creates the store with the reducers, and does some other stuff to initialize devtools
+// boilerplate to copy, don't have to know
+const store = createStore(reducers, {}, compose(
+    applyMiddleware(),
+    window.__REDUX_DEVTOOLS_EXTENSION__ ? window.__REDUX_DEVTOOLS_EXTENSION__() : (f) => f,
+));
 
-    search = (text) => {
-        youtubeSearch(text).then((videos) => {
-            this.setState({
-                videos,
-                selectedVideo: videos[0],
-            });
-        });
-    }
-
-    render() {
-        return (
-            <div>
-                <SearchBar onSearchChange={this.search} />
-
-                <div id="video-section">
-                    <VideoDetail video={this.state.selectedVideo} />
-                    <VideoList onVideoSelect={(selectedVideo) => this.setState({ selectedVideo })} videos={this.state.videos} />
-                </div>
-
-            </div>
-        );
-    }
-}
-
-ReactDOM.render(<App />, document.getElementById('main'));
+// we now wrap App in a Provider
+ReactDOM.render(
+    <Provider store={store}>
+        <App />
+    </Provider>, document.getElementById('main'),
+);
