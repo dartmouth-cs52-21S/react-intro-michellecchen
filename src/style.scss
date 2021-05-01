@@ -43,5 +43,8 @@ body {
     li:hover {
         background: darken( $backgroundcolor, 10% );
     }
+}
 
+.active {
+    color: pink;
 }
