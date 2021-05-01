@@ -3,11 +3,11 @@ import { BrowserRouter as Router, Route, NavLink, Switch } from 'react-router-do
 import YouTube from './youtube';
 
 const About = (props) => {
-    return <div> All there is to know about me </div>;
+    return <div>This is a website where you can browse YouTube through the power of React.</div>;
 };
 
 const Welcome = (props) => {
-    return <div>Welcome</div>;
+    return <div>Welcome! Enjoy your stay.</div>;
 };
 
 const Test = (props) => {
@@ -15,7 +15,7 @@ const Test = (props) => {
 };
 
 const FallBack = (props) => {
-    return <div>URL Not Found</div>;
+    return <div>URL not found. Please enter a proper URL.</div>;
 };
 
 const App = (props) => {
@@ -41,8 +41,8 @@ const Nav = (props) => {
             <ul>
                 <li><NavLink to="/">Home</NavLink></li>
                 <li><NavLink to="/about">About</NavLink></li>
-                <li><NavLink to="/test/id1">test id1</NavLink></li>
-                <li><NavLink to="/test/id2">test id2</NavLink></li>
+                <li><NavLink to="/test/id1">Test #1</NavLink></li>
+                <li><NavLink to="/test/id2">Test #2</NavLink></li>
                 <li><NavLink to="/youtube" exact>YouTube</NavLink></li>
             </ul>
         </nav>

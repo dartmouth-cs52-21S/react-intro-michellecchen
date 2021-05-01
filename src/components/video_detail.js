@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 const VideoDetail = ({ video }) => {
     if (!video) {
@@ -15,11 +16,15 @@ const VideoDetail = ({ video }) => {
                 <iframe className="embed-responsive-item" src={url} title="responsive-video" />
             </div>
             <div className="details">
-                <div>{video.snippet.title}</div>
-                <div>{video.snippet.description}</div>
+                <div id="video-title">{video.snippet.title}</div>
+                <div id="video-description">{video.snippet.description}</div>
             </div>
         </div>
     );
 };
 
-export default VideoDetail;
+const mapStateToProps = (reduxState) => ({
+    video: reduxState.video.selected,
+});
+
+export default connect(mapStateToProps, null)(VideoDetail);

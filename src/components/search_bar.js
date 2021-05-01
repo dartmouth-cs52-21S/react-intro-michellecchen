@@ -17,6 +17,7 @@ class SearchBar extends Component {
     return (
       <div id="search-bar">
         <input onChange={this.onInputChange} value={this.state.searchterm} />
+        <i className="fas fa-search" />
       </div>
     );
   }

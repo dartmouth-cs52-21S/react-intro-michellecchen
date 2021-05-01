@@ -8,6 +8,16 @@ body {
     margin: 50px;
 }
 
+ul {
+    list-style-type: none;
+    margin: 10px 0 10px;
+}
+
+li {
+    display: inline;
+    margin-left: 1.5em;
+}
+
 .logo {
     background-image: url('img/tiny.png');
     width: 100px;
@@ -22,6 +32,22 @@ body {
     input {
       font-size: 1.5em;
       border-radius: .25em;
+    }
+
+    .fas {
+        font-size: 1.5em;
+        margin-left: .5em;
+        opacity: 0.35;
+        transition: all 0.3s ease-in-out;
+        -webkit-transition: all 0.3s ease-in-out;
+    }
+}
+
+#search-bar:hover {
+    .fas {
+        opacity: 1;
+        transition: all 0.3s ease-in-out;
+        -webkit-transition: all 0.3s ease-in-out;
     }
 }
 
@@ -47,4 +73,18 @@ body {
 
 .active {
     color: pink;
+}
+
+.details {
+    margin-top: 10px;
+
+    #video-title {
+        font-size: 30px;
+        font-style: bold;
+    }
+}
+
+.video-list-title {
+    margin-left: 10px;
+    font-style: bold;
 }
